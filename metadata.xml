@@ -21,6 +21,9 @@
                 <Property Name="Phone" Type="Edm.String" MaxLength="24" />
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
             </EntityType>
+            <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <EntitySet EntityType="com.fiori-element.Supplier" Name="Suppliers"/>
+            </EntityContainer>
 
 
         </Schema>
