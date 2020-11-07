@@ -3,7 +3,7 @@
     xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
     <edmx:DataServices m:DataServiceVersion="2.0"
         xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
-        <Schema Namespace="com.fiori-element"
+        <Schema Namespace="FioriElement"
             xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
             xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
             xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
@@ -11,7 +11,7 @@
                 <Key>
                     <PropertyRef Name="Id"/>
                 </Key>
-                <Property Name="Id" Type="Edm.Int32" />
+                <Property Name="SupplierId" Type="Edm.Int32" />
                 <Property Name="Name" Type="Edm.String" MaxLength="40" />
                 <Property Name="Category" Type="Edm.String" MaxLength="20" />
                 <Property Name="Address" Type="Edm.String" MaxLength="50" />
@@ -20,13 +20,13 @@
                 <Property Name="Country" Type="Edm.String" MaxLength="15" />
                 <Property Name="Phone" Type="Edm.String" MaxLength="24" />
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
-                <NavigationProperty FromRole="Suppliers" Name="Products" ToRole="Products" Relationship="com.fiori-element.FK_Suppliers_Products"/>
+                <NavigationProperty FromRole="Suppliers" Name="Products" ToRole="Products" Relationship="FioriElement.FK_Suppliers_Products"/>
             </EntityType>
             <EntityType Name="Product">
                 <Key>
                     <PropertyRef Name="Id"/>
                 </Key>
-                <Property Name="Id" Type="Edm.Int32"/>
+                <Property Name="ProductId" Type="Edm.Int32"/>
                 <Property Name="Name" Type="Edm.String" MaxLength="40" />
                 <Property Name="SupplierID" Type="Edm.Int32" />
                 <Property Name="QuantityPerUnit" Type="Edm.String" MaxLength="20" />
@@ -35,9 +35,21 @@
                 <Property Name="UnitsOnOrder" Type="Edm.Int16"  />
                 <Property Name="Discontinued" Type="Edm.Boolean" />
             </EntityType>
+            <Association Name="FK_Suppliers_Products">
+                <End Multiplicity="0..1" Role="Suppliers" Type="FioriElement.Supplier"/>
+                <End Multiplicity="*" Role="Products" Type="FioriElement.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="Suppliers">
+                        <PropertyRef Name="SupplierId"/>
+                    </Principal>
+                    <Dependent Role="Products">
+                        <PropertyRef Name="ProductId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
                 xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-                <EntitySet EntityType="com.fiori-element.Supplier" Name="Suppliers"/>
+                <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
             </EntityContainer>
 
 
