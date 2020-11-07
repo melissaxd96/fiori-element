@@ -20,8 +20,10 @@
                 <Property Name="Country" Type="Edm.String" MaxLength="15" />
                 <Property Name="Phone" Type="Edm.String" MaxLength="24" />
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
+                <NavigationProperty FromRole="Suppliers" Name="Products" ToRole="Products" Relationship="com.fiori-element.FK_Suppliers_Products"/>
             </EntityType>
-            <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+            <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
+                xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
                 <EntitySet EntityType="com.fiori-element.Supplier" Name="Suppliers"/>
             </EntityContainer>
 
