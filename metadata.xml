@@ -50,6 +50,13 @@
             <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
                 xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
                 <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
+
+                <EntitySet EntityType="FioriElement.Product" Name="Products"/>
+                <AssociationSet Association=" FioriElement.FK_Suppliers_Products" Name="SuppliersToProducts_AssocSet">
+                    <End EntitySet="Suppliers" Role="Supplier"/>
+                    <End EntitySet="Products" Role="Product"/>
+                </AssociationSet>
+
             </EntityContainer>
 
 
