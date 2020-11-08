@@ -59,6 +59,18 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="FK_Products_Orders">
+                <End Multiplicity="0..1" Role="Products" Type="FioriElement.Product"/>
+                <End Multiplicity="*" Role="Orders" Type="FioriElement.Order"/>
+                <ReferentialConstraint>
+                    <Principal Role="Products">
+                        <PropertyRef Name="ProductId"/>
+                    </Principal>
+                    <Dependent Role="Orders">
+                        <PropertyRef Name="OrderId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
                 xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
                 <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
