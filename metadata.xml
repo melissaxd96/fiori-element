@@ -36,6 +36,17 @@
                 <Property Name="Discontinued" Type="Edm.Boolean" />
                 <NavigationProperty FromRole="Products" Name="Orders" ToRole="Orders" Relationship="FioriElement.FK_Products_Orders"/>
             </EntityType>
+            <EntityType Name="Order">
+                <Key>
+                    <PropertyRef Name="OrderId"/>
+                </Key>
+                <Property Name="OrderId" Type="Edm.Int32"/>
+                <Property Name="ProductId" Type="Edm.Int32" />
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="40" />
+                <Property Name="OrderDate" Type="Edm.DateTime" />
+                <Property Name="ShippedDate" Type="Edm.DateTime" />
+                <Property Name="ShipVia" Type="Edm.String" MaxLength="15" />
+            </EntityType>
             <Association Name="FK_Suppliers_Products">
                 <End Multiplicity="0..1" Role="Suppliers" Type="FioriElement.Supplier"/>
                 <End Multiplicity="*" Role="Products" Type="FioriElement.Product"/>
