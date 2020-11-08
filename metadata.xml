@@ -76,9 +76,15 @@
                 <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
 
                 <EntitySet EntityType="FioriElement.Product" Name="Products"/>
-                <AssociationSet Association=" FioriElement.FK_Suppliers_Products" Name="SuppliersToProducts_AssocSet">
+                <AssociationSet Association="FioriElement.FK_Suppliers_Products" Name="SuppliersToProducts_AssocSet">
                     <End EntitySet="Suppliers" Role="Supplier"/>
                     <End EntitySet="Products" Role="Product"/>
+                </AssociationSet>
+
+                <EntitySet EntityType="FioriElement.Order" Name="Orders"/>
+                <AssociationSet Association="FioriElement.FK_Products_Orders" Name="ProductsToOrders_AssocSet">
+                    <End EntitySet="Products" Role="Product"/>
+                    <End EntitySet="Orders" Role="Order"/>
                 </AssociationSet>
 
             </EntityContainer>
