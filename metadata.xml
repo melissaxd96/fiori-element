@@ -34,6 +34,7 @@
                 <Property Name="UnitsInStock" Type="Edm.Int16" />
                 <Property Name="UnitsOnOrder" Type="Edm.Int16"  />
                 <Property Name="Discontinued" Type="Edm.Boolean" />
+                <NavigationProperty FromRole="Products" Name="Orders" ToRole="Orders" Relationship="FioriElement.FK_Products_Orders"/>
             </EntityType>
             <Association Name="FK_Suppliers_Products">
                 <End Multiplicity="0..1" Role="Suppliers" Type="FioriElement.Supplier"/>
