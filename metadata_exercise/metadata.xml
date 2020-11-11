@@ -20,7 +20,7 @@
                 <Property Name="Country" Type="Edm.String" MaxLength="15" />
                 <Property Name="Phone" Type="Edm.String" MaxLength="24" />
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
-                <NavigationProperty FromRole="Supplier" Name="ToProducts" ToRole="Product" Relationship="FioriElement.FK_Supplier_Product"/>
+                <NavigationProperty FromRole="Supplier" Name="ToProducts" ToRole="Products" Relationship="FioriElement.FK_Supplier_Products"/>
             </EntityType>
             <EntityType Name="Product">
                 <Key>
@@ -34,7 +34,7 @@
                 <Property Name="UnitsInStock" Type="Edm.Int16" />
                 <Property Name="UnitsOnOrder" Type="Edm.Int16"  />
                 <Property Name="Discontinued" Type="Edm.Boolean" />
-                <NavigationProperty FromRole="Product" Name="ToOrders" ToRole="Order" Relationship="FioriElement.FK_Product_Order"/>
+                <NavigationProperty FromRole="Product" Name="ToOrders" ToRole="Orders" Relationship="FioriElement.FK_Product_Orders"/>
             </EntityType>
             <EntityType Name="Order">
                 <Key>
@@ -77,11 +77,11 @@
                 <EntitySet EntityType="FioriElement.Product" Name="Products"/>
                 <EntitySet EntityType="FioriElement.Order" Name="Orders"/>
 
-                <AssociationSet Association="FioriElement.FK_Suppliers_Products" Name="SuppliersToProducts_AssocSet">
+                <AssociationSet Association="FioriElement.FK_Supplier_Products" Name="SupplierToProducts_AssocSet">
                     <End EntitySet="Suppliers" Role="Supplier"/>
                     <End EntitySet="Products" Role="Product"/>
                 </AssociationSet>
-                <AssociationSet Association="FioriElement.FK_Products_Orders" Name="ProductsToOrders_AssocSet">
+                <AssociationSet Association="FioriElement.FK_Product_Orders" Name="ProductToOrders_AssocSet">
                     <End EntitySet="Products" Role="Product"/>
                     <End EntitySet="Orders" Role="Order"/>
                 </AssociationSet>
