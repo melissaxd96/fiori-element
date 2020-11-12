@@ -60,13 +60,12 @@
                 <Property Name="ShippedDate" Type="Edm.DateTime" />
                 <Property Name="ShipVia" Type="Edm.String" MaxLength="15" />
             </EntityType>
-
             <!-- Added VH_Country Entity -->
             <EntityType Name="VH_Country">
                 <Key>
                     <PropertyRef Name="Code"/>
                 </Key>
-                <Property Name="Code" Type="Edm.String" MaxLength="5" />
+                <Property Name="Code" Type="Edm.String" MaxLength="5" Nullable="false"/>
                 <Property Name="Text" Type="Edm.String" MaxLength="20" />
             </EntityType>
 
@@ -96,25 +95,6 @@
                 </ReferentialConstraint>
             </Association>
 
-            <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
-                xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-                <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
-                <EntitySet EntityType="FioriElement.Product" Name="Products"/>
-                <EntitySet EntityType="FioriElement.Order" Name="Orders"/>
-                
-                <!-- Added VH_Countries Entity Set -->
-                <EntitySet EntityType="FioriElement.VH_Country" Name="VH_Countries"/>
-
-                <AssociationSet Association="FioriElement.FK_Supplier_Products" Name="SupplierToProducts_AssocSet">
-                    <End EntitySet="Suppliers" Role="Supplier"/>
-                    <End EntitySet="Products" Role="Product"/>
-                </AssociationSet>
-                <AssociationSet Association="FioriElement.FK_Product_Orders" Name="ProductToOrders_AssocSet">
-                    <End EntitySet="Products" Role="Product"/>
-                    <End EntitySet="Orders" Role="Order"/>
-                </AssociationSet>
-            </EntityContainer>
-
             <!-- Supplier Entity To Display the Fields specified UI.LineItem -->
             <Annotations Target="FioriElement.Supplier"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -135,15 +115,21 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Phone"/>
                         </Record>
-                    </Collection> 
+                    </Collection>
+                </Annotation>
+                <!-- Add filter for CountryId in Supplier Entity-->
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CountryId</PropertyPath>
+                    </Collection>
                 </Annotation>
             </Annotations>
-            
+
             <!-- Supplier Entity Set -->
             <Annotations Target="FioriElement.FioriElementEntities/Suppliers"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <!-- Remove Insert, Update, Delete buttons-->
-                <Annotation Term="Capabilities.InsertRestrictions" >
+                <Annotation Term="Capabilities.InsertRestrictions">
                     <Record Type="Capabilities.InsertRestrictionsType">
                         <PropertyValue Property="Insertable" Bool="false"/>
                     </Record>
@@ -160,37 +146,78 @@
                 </Annotation>
             </Annotations>
 
-            <Annotations Target="FioriElement.Supplier/Name" 
+            <Annotations Target="FioriElement.Supplier/Name"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation String="Company" Term="Common.Label">
-                </Annotation>
+                <Annotation String="Company" Term="Common.Label"/>
             </Annotations>
 
-            <Annotations Target="FioriElement.Supplier/Category" 
+            <Annotations Target="FioriElement.Supplier/Category"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation String="Category" Term="Common.Label">
-                </Annotation>
+                <Annotation String="Category" Term="Common.Label"/>
             </Annotations>
 
-            <Annotations Target="FioriElement.Supplier/City" 
+            <Annotations Target="FioriElement.Supplier/City"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation String="City" Term="Common.Label">
-                </Annotation>
+                <Annotation String="City" Term="Common.Label"/>
             </Annotations>
 
-            <Annotations Target="FioriElement.Supplier/Country" 
+            <Annotations Target="FioriElement.Supplier/Country"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation String="Country" Term="Common.Label">
-                </Annotation>
+                <Annotation String="Country" Term="Common.Label"/>
             </Annotations>
 
-            <Annotations Target="FioriElement.Supplier/Phone" 
+            <Annotations Target="FioriElement.Supplier/Phone"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation String="Phone" Term="Common.Label">
-                </Annotation>
+                <Annotation String="Phone" Term="Common.Label"/>
             </Annotations>
 
-   
+            <Annotations Target="FioriElement.Supplier/CountryId"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="VH_Countries" />
+                        <PropertyValue Property="Label" String="Countries"/>
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryId"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+            </Annotations>
+
+            <Annotations Target="FioriElement.VH_Country/Code"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Text" Path="Text" />
+            </Annotations>
+
+            <EntityContainer Name="FioriElementEntities" m:IsDefaultEntityContainer="true"
+                xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <EntitySet EntityType="FioriElement.Supplier" Name="Suppliers"/>
+                <EntitySet EntityType="FioriElement.Product" Name="Products"/>
+                <EntitySet EntityType="FioriElement.Order" Name="Orders"/>
+                <!-- Added VH_Countries Entity Set -->
+                <EntitySet EntityType="FioriElement.VH_Country" Name="VH_Countries"/>
+
+                <AssociationSet Association="FioriElement.FK_Supplier_Products" Name="SupplierToProducts_AssocSet">
+                    <End EntitySet="Suppliers" Role="Supplier"/>
+                    <End EntitySet="Products" Role="Product"/>
+                </AssociationSet>
+                <AssociationSet Association="FioriElement.FK_Product_Orders" Name="ProductToOrders_AssocSet">
+                    <End EntitySet="Products" Role="Product"/>
+                    <End EntitySet="Orders" Role="Order"/>
+                </AssociationSet>
+            </EntityContainer>
+
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
