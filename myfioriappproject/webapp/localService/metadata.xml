@@ -123,6 +123,13 @@
                         <PropertyPath>CountryId</PropertyPath>
                     </Collection>
                 </Annotation>
+                <!-- Add Header Information -->
+                <Annotation Term="UI.HeaderInfo" >
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Supplier" />
+                        <PropertyValue Property="TypeNamePlural" String="Suppliers" />
+                    </Record>
+                </Annotation>
             </Annotations>
 
             <!-- Supplier Entity Set -->
