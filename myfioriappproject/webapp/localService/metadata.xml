@@ -98,6 +98,7 @@
                     <End EntitySet="Orders" Role="Order"/>
                 </AssociationSet>
             </EntityContainer>
+            <!-- Supplier Entity To Display the Fields specified UI.LineItem -->
             <Annotations Target="FioriElement.Supplier"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.LineItem">
@@ -120,12 +121,24 @@
                     </Collection> 
                 </Annotation>
             </Annotations>
-
+            
+            <!-- Supplier Entity Set -->
             <Annotations Target="FioriElement.FioriElementEntities/Suppliers"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <!-- Remove Insert, Update, Delete buttons-->
                 <Annotation Term="Capabilities.InsertRestrictions" >
                     <Record Type="Capabilities.InsertRestrictionsType">
                         <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
                     </Record>
                 </Annotation>
             </Annotations>
