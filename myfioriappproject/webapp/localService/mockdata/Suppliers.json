@@ -17,6 +17,7 @@
         "Phone": "(171) 555-2222",
         "Fax": null,
         "Website":"https://www.google.com/",
+        "CountryId": "UK",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(1)/Products"
@@ -40,6 +41,7 @@
         "Country": "United States",
         "Phone": "(100) 555-4822",
         "Fax": null,
+        "CountryId": "USA",
         "Website":"https://www.google.com/",
         "Products": {
             "__deferred": {
@@ -65,6 +67,7 @@
         "Phone": "(313) 555-5735",
         "Fax": "(313) 555-3349",
         "Website":"https://www.google.com/",
+        "CountryId":"USA",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(3)/Products"
@@ -89,6 +92,7 @@
         "Phone": "(03) 3555-5011",
         "Fax": null,
         "Website":"https://www.google.com/",
+        "CountryId": "JPN",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(4)/Products"
@@ -113,6 +117,7 @@
         "Phone": "(98) 598 76 54",
         "Fax": null,
         "Website":"https://www.google.com/",
+        "CountryId": "SPN",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(5)/Products"
