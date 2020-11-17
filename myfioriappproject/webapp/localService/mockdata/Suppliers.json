@@ -18,7 +18,7 @@
         "Fax": null,
         "Website":"https://www.google.com/",
         "CountryId": "UK",
-&        "LogoPath": "/images/logo/logo1.png",
+        "LogoPath": "/images/logo/logo1.png",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(1)/Products"
@@ -43,7 +43,7 @@
         "Phone": "(100) 555-4822",
         "Fax": null,
         "CountryId": "USA",
-        "LogoPath": "/images/logo/logo2.png",
+        "LogoPath": "/images/logo/logo2.jpg",
         "Website":"https://www.google.com/",
         "Products": {
             "__deferred": {
@@ -122,7 +122,7 @@
         "Fax": null,
         "Website":"https://www.google.com/",
         "CountryId": "SPN",
-        "LogoPath": "/images/logo/logo5.png",
+        "LogoPath": "/images/logo/logo5.jpg",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(5)/Products"

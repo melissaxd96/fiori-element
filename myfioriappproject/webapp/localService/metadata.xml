@@ -102,6 +102,9 @@
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LogoPath"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Name"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -131,6 +134,7 @@
                         <PropertyValue Property="TypeNamePlural" String="Suppliers" />
                     </Record>
                 </Annotation>
+
             </Annotations>
 
             <!-- Supplier Entity Set -->
@@ -200,6 +204,12 @@
                     </Record>
                 </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+            </Annotations>
+
+            <Annotations Target="FioriElement.Supplier/LogoPath"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Logo" Term="Common.Label"/>
+                <Annotation Term="UI.IsImageURL" />
             </Annotations>
 
             <Annotations Target="FioriElement.VH_Country/Code"
