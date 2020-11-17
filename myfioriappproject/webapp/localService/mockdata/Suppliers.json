@@ -18,6 +18,7 @@
         "Fax": null,
         "Website":"https://www.google.com/",
         "CountryId": "UK",
+&        "LogoPath": "/images/logo/logo1.png",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(1)/Products"
@@ -42,6 +43,7 @@
         "Phone": "(100) 555-4822",
         "Fax": null,
         "CountryId": "USA",
+        "LogoPath": "/images/logo/logo2.png",
         "Website":"https://www.google.com/",
         "Products": {
             "__deferred": {
@@ -68,6 +70,7 @@
         "Fax": "(313) 555-3349",
         "Website":"https://www.google.com/",
         "CountryId":"USA",
+        "LogoPath": "/images/logo/logo3.png",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(3)/Products"
@@ -93,6 +96,7 @@
         "Fax": null,
         "Website":"https://www.google.com/",
         "CountryId": "JPN",
+        "LogoPath": "/images/logo/logo4.png",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(4)/Products"
@@ -118,6 +122,7 @@
         "Fax": null,
         "Website":"https://www.google.com/",
         "CountryId": "SPN",
+        "LogoPath": "/images/logo/logo5.png",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(5)/Products"
