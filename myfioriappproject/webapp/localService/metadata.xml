@@ -33,6 +33,7 @@
                 <Property Name="Phone" Type="Edm.String" MaxLength="24" />
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
                 <Property Name="CountryId" Type="Edm.String" MaxLength="5"/>
+                <Property Name="LogoPath" Type="Edm.String" MaxLength="255"/>
                 <NavigationProperty FromRole="Supplier" Name="ToProducts" ToRole="Products" Relationship="FioriElement.FK_Supplier_Products"/>
             </EntityType>
             <EntityType Name="Product">
