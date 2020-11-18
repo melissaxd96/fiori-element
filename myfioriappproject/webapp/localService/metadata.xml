@@ -96,7 +96,7 @@
                 </ReferentialConstraint>
             </Association>
 
-            <!-- Supplier Entity To Display the Fields specified UI.LineItem -->
+            <!-- Supplier Entity To Display the Fields specified UI.LineItem in table-->
             <Annotations Target="FioriElement.Supplier"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.LineItem">
@@ -162,12 +162,44 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <!-- Facets controls the body of the page -->
+                <!-- UI.Facets annotation is the starting point for adding sections to the Body -->
                 <Annotation Term="UI.HeaderFacets" >
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/>
                             <PropertyValue Property="Label" String="General Information"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets" >
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="ToProducts/@UI.LineItem#ProductsTable"/>
+                            <PropertyValue Property="Label" String="Basic Data"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <!-- Product Entity To Display the Fields specified UI.LineItem in table-->
+            <Annotations Target="FioriElement.Product"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.LineItem" Qualifier="ProductsTable">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="QuantityPerUnit"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Discontinued"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitPrice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitsInStock"/>
                         </Record>
                     </Collection>
                 </Annotation>
