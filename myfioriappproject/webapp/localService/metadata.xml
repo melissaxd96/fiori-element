@@ -168,14 +168,16 @@
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/>
                             <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="ID" String="GeneralInfomation"/>
                         </Record>
                     </Collection>
                 </Annotation>
                 <Annotation Term="UI.Facets" >
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Target" AnnotationPath="ToProducts/@UI.LineItem#ProductsTable"/>
-                            <PropertyValue Property="Label" String="Basic Data"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToProducts/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="Product List"/>
+                            <PropertyValue Property="ID" String="ProductList"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -184,7 +186,7 @@
             <!-- Product Entity To Display the Fields specified UI.LineItem in table-->
             <Annotations Target="FioriElement.Product"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="UI.LineItem" Qualifier="ProductsTable">
+                <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Name"/>
@@ -203,6 +205,32 @@
                         </Record>
                     </Collection>
                 </Annotation>
+            </Annotations>
+
+            <!-- Add label to product table -->
+            <Annotations Target="FioriElement.Product/Name"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Product" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Product/UnitsInStock"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Units In Stock" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Product/UnitPrice"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Unit Price" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Product/Discontinued"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Discontinued" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Product/QuantityPerUnit"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Quantity Per Unit" Term="Common.Label"/>
             </Annotations>
 
             <!-- Supplier Entity Set -->
