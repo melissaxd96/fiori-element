@@ -16,9 +16,10 @@
         "Country": "United Kingdom",
         "Phone": "(171) 555-2222",
         "Fax": null,
-        "Website":"https://www.google.com/",
+        "Website": "https://www.google.com/",
         "CountryId": "UK",
         "LogoPath": "/images/logo/logo1.png",
+        "ContactPersonId": "101",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(1)/Products"
@@ -44,7 +45,8 @@
         "Fax": null,
         "CountryId": "USA",
         "LogoPath": "/images/logo/logo2.jpg",
-        "Website":"https://www.google.com/",
+        "ContactPersonId": "102",
+        "Website": "https://www.google.com/",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(2)/Products"
@@ -68,9 +70,10 @@
         "Country": "United States",
         "Phone": "(313) 555-5735",
         "Fax": "(313) 555-3349",
-        "Website":"https://www.google.com/",
-        "CountryId":"USA",
+        "Website": "https://www.google.com/",
+        "CountryId": "USA",
         "LogoPath": "/images/logo/logo3.png",
+        "ContactPersonId": "103",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(3)/Products"
@@ -94,9 +97,10 @@
         "Country": "Japan",
         "Phone": "(03) 3555-5011",
         "Fax": null,
-        "Website":"https://www.google.com/",
+        "Website": "https://www.google.com/",
         "CountryId": "JPN",
         "LogoPath": "/images/logo/logo4.png",
+        "ContactPersonId": "104",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(4)/Products"
@@ -120,9 +124,10 @@
         "Country": "Spain",
         "Phone": "(98) 598 76 54",
         "Fax": null,
-        "Website":"https://www.google.com/",
+        "Website": "https://www.google.com/",
         "CountryId": "SPN",
         "LogoPath": "/images/logo/logo5.jpg",
+        "ContactPersonId": "105",
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(5)/Products"

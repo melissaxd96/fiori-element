@@ -34,7 +34,9 @@
                 <Property Name="Website" Type="Edm.String" MaxLength="Max" />
                 <Property Name="CountryId" Type="Edm.String" MaxLength="5"/>
                 <Property Name="LogoPath" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ContactPersonId" Type="Edm.Int32"/>
                 <NavigationProperty FromRole="Supplier" Name="ToProducts" ToRole="Products" Relationship="FioriElement.FK_Supplier_Products"/>
+                <NavigationProperty FromRole="Supplier" Name="ToContactPerson" ToRole="ContactPerson" Relationship="FioriElement.FK_Supplier_ContactPerson"/>
             </EntityType>
             <EntityType Name="Product">
                 <Key>
@@ -70,6 +72,16 @@
                 <Property Name="Code" Type="Edm.String" MaxLength="5" Nullable="false"/>
                 <Property Name="Text" Type="Edm.String" MaxLength="20" />
             </EntityType>
+            <EntityType Name="ContactPerson">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="30" />
+                <Property Name="Title" Type="Edm.String" MaxLength="30" />
+                <Property Name="Email" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Phone" Type="Edm.String" MaxLength="24"/>
+            </EntityType>
 
             <Association Name="FK_Supplier_Products">
                 <End Multiplicity="0..1" Role="Supplier" Type="FioriElement.Supplier"/>
@@ -93,6 +105,19 @@
                     </Principal>
                     <Dependent Role="Orders">
                         <PropertyRef Name="ProductId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+
+            <Association Name="FK_Supplier_ContactPerson">
+                <End Multiplicity="0..1" Role="Supplier" Type="FioriElement.Supplier"/>
+                <End Multiplicity="1" Role="ContactPerson" Type="FioriElement.ContactPerson"/>
+                <ReferentialConstraint>
+                    <Principal Role="Product">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ContactPerson">
+                        <PropertyRef Name="ContactPersonId"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
@@ -328,6 +353,10 @@
                 <AssociationSet Association="FioriElement.FK_Product_Orders" Name="ProductToOrders_AssocSet">
                     <End EntitySet="Products" Role="Product"/>
                     <End EntitySet="Orders" Role="Orders"/>
+                </AssociationSet>
+                <AssociationSet Association="FioriElement.FK_Supplier_ContactPerson" Name="SupplierToContactPerson_AssocSet">
+                    <End EntitySet="Suppliers" Role="Supplier"/>
+                    <End EntitySet="ContactPersons" Role="ContactPerson"/>
                 </AssociationSet>
             </EntityContainer>
 
