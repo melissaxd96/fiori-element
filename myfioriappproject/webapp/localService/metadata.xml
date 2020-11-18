@@ -239,6 +239,8 @@
             <Annotations Target="FioriElement.Product/UnitPrice"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation String="Unit Price" Term="Common.Label"/>
+                <!-- Show Currency Key -->
+                <Annotation Term="Measures.Unit" Path="CurrencyKey"/>
             </Annotations>
 
             <Annotations Target="FioriElement.Product/Discontinued"
