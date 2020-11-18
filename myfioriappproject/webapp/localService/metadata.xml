@@ -163,16 +163,16 @@
                     </Record>
                 </Annotation>
                 <!-- UI.Facets annotation is the starting point for adding sections to the Body -->
-                <Annotation Term="UI.HeaderFacets" >
+                <Annotation Term="UI.HeaderFacets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/>
                             <PropertyValue Property="Label" String="General Information"/>
-                            <PropertyValue Property="ID" String="GeneralInfomation"/>
+                            <PropertyValue Property="ID" String="GeneralInformation"/>
                         </Record>
                     </Collection>
                 </Annotation>
-                <Annotation Term="UI.Facets" >
+                <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Target" AnnotationPath="ToProducts/@UI.LineItem"/>
@@ -233,27 +233,7 @@
                 <Annotation String="Quantity Per Unit" Term="Common.Label"/>
             </Annotations>
 
-            <!-- Supplier Entity Set -->
-            <Annotations Target="FioriElement.FioriElementEntities/Suppliers"
-                xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <!-- Remove Insert, Update, Delete buttons-->
-                <Annotation Term="Capabilities.InsertRestrictions">
-                    <Record Type="Capabilities.InsertRestrictionsType">
-                        <PropertyValue Property="Insertable" Bool="false"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Capabilities.UpdateRestrictions">
-                    <Record Type="Capabilities.UpdateRestrictionsType">
-                        <PropertyValue Property="Updatable" Bool="false"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Capabilities.DeleteRestrictions">
-                    <Record Type="Capabilities.DeleteRestrictionsType">
-                        <PropertyValue Property="Deletable" Bool="false"/>
-                    </Record>
-                </Annotation>
-            </Annotations>
-
+            <!-- Add label for Supplier table -->
             <Annotations Target="FioriElement.Supplier/Name"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation String="Company" Term="Common.Label"/>
@@ -323,13 +303,55 @@
 
                 <AssociationSet Association="FioriElement.FK_Supplier_Products" Name="SupplierToProducts_AssocSet">
                     <End EntitySet="Suppliers" Role="Supplier"/>
-                    <End EntitySet="Products" Role="Product"/>
+                    <End EntitySet="Products" Role="Products"/>
                 </AssociationSet>
                 <AssociationSet Association="FioriElement.FK_Product_Orders" Name="ProductToOrders_AssocSet">
                     <End EntitySet="Products" Role="Product"/>
-                    <End EntitySet="Orders" Role="Order"/>
+                    <End EntitySet="Orders" Role="Orders"/>
                 </AssociationSet>
             </EntityContainer>
+
+            <!-- Supplier Entity Set -->
+            <Annotations Target="FioriElement.FioriElementEntities/Suppliers"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <!-- Remove Insert, Update, Delete buttons-->
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- Product Entity Set -->
+            <Annotations Target="FioriElement.FioriElementEntities/Products"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <!-- Remove Insert, Update, Delete buttons-->
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
 
 
         </Schema>
