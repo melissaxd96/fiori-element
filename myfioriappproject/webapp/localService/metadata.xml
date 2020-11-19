@@ -488,11 +488,11 @@
                         <PropertyValue Property="Insertable" Bool="false"/>
                     </Record>
                 </Annotation>
-                <Annotation Term="Capabilities.UpdateRestrictions">
+                <!-- <Annotation Term="Capabilities.UpdateRestrictions">
                     <Record Type="Capabilities.UpdateRestrictionsType">
                         <PropertyValue Property="Updatable" Bool="false"/>
                     </Record>
-                </Annotation>
+                </Annotation> -->
                 <Annotation Term="Capabilities.DeleteRestrictions">
                     <Record Type="Capabilities.DeleteRestrictionsType">
                         <PropertyValue Property="Deletable" Bool="false"/>
