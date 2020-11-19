@@ -3,7 +3,7 @@
     <Column hAlign="Center">
         <Text text="{i18n>salesOverviewLabel}"/>
         <customData>
-            <core:CustomData key="p13nData" value='\{"columnKey": "SalesOverview", "columnIndex":"9"}'/>
+            <core:CustomData key="p13nData" value='\{"columnKey": "SalesOverview", "columnIndex":"7"}'/>
         </customData>
     </Column>
 </core:FragmentDefinition>
