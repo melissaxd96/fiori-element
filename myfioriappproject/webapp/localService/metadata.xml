@@ -261,6 +261,15 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="ToOrders/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="Order List"/>
+                            <PropertyValue Property="ID" String="OrderList"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
             </Annotations>
 
             <!-- Contact Person -->
@@ -289,7 +298,30 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+            </Annotations>
 
+            <!-- Order Entity To Display the Fields specified UI.LineItem in table-->
+            <Annotations Target="FioriElement.Order"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShippedDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipVia"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
             </Annotations>
 
             <!--Starting of Products-->
@@ -376,6 +408,33 @@
                 <Annotation Term="UI.IsImageURL" />
             </Annotations>
 
+            <!-- Add label to Order table -->
+            <Annotations Target="FioriElement.Order/Id"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Order ID" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Order/CustomerName"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Customer" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Order/OrderDate"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Order Date" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Order/ShippedDate"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Shipped Date" Term="Common.Label"/>
+            </Annotations>
+
+            <Annotations Target="FioriElement.Order/ShipVia"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation String="Ship Via" Term="Common.Label"/>
+            </Annotations>
+
+            <!-- Add label to VH_Country -->
             <Annotations Target="FioriElement.VH_Country/Code"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Text" Path="Text" />
@@ -427,6 +486,27 @@
 
             <!-- Product Entity Set -->
             <Annotations Target="FioriElement.FioriElementEntities/Products"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <!-- Remove Insert, Update, Delete buttons-->
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- Order Entity Set -->
+            <Annotations Target="FioriElement.FioriElementEntities/Orders"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <!-- Remove Insert, Update, Delete buttons-->
                 <Annotation Term="Capabilities.InsertRestrictions">
