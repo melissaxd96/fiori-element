@@ -144,6 +144,13 @@
                                 },
                                 "entitySet": "Products",
                                 "navigationProperty": "ToProducts"
+                            },
+                            "ObjectPage|ContactPersons": {
+                                "component": {
+                                    "name": "sap.suite.ui.generic.template.ObjectPage"
+                                },
+                                "entitySet": "ContactPersons",
+                                "navigationProperty": "ToContactPerson"
                             }
                         }
                     }

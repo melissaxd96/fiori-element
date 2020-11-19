@@ -19,7 +19,7 @@
         "Website": "https://www.google.com/",
         "CountryId": "UK",
         "LogoPath": "/images/logo/logo1.png",
-        "ContactPersonId": "101",
+        "ContactPersonId": 101,
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(1)/Products"
@@ -45,7 +45,7 @@
         "Fax": null,
         "CountryId": "USA",
         "LogoPath": "/images/logo/logo2.jpg",
-        "ContactPersonId": "102",
+        "ContactPersonId": 102,
         "Website": "https://www.google.com/",
         "Products": {
             "__deferred": {
@@ -73,7 +73,7 @@
         "Website": "https://www.google.com/",
         "CountryId": "USA",
         "LogoPath": "/images/logo/logo3.png",
-        "ContactPersonId": "103",
+        "ContactPersonId": 103,
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(3)/Products"
@@ -100,7 +100,7 @@
         "Website": "https://www.google.com/",
         "CountryId": "JPN",
         "LogoPath": "/images/logo/logo4.png",
-        "ContactPersonId": "104",
+        "ContactPersonId": 104,
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(4)/Products"
@@ -127,7 +127,7 @@
         "Website": "https://www.google.com/",
         "CountryId": "SPN",
         "LogoPath": "/images/logo/logo5.jpg",
-        "ContactPersonId": "105",
+        "ContactPersonId": 105,
         "Products": {
             "__deferred": {
                 "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/Suppliers(5)/Products"

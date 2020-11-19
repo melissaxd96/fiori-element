@@ -17,6 +17,10 @@
         xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
     </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
     <edmx:DataServices m:DataServiceVersion="2.0"
         xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
         <Schema Namespace="FioriElement"
@@ -117,11 +121,11 @@
                 <End Multiplicity="0..1" Role="Supplier" Type="FioriElement.Supplier"/>
                 <End Multiplicity="1" Role="ContactPerson" Type="FioriElement.ContactPerson"/>
                 <ReferentialConstraint>
-                    <Principal Role="Product">
-                        <PropertyRef Name="Id"/>
+                    <Principal Role="Supplier">
+                        <PropertyRef Name="ContactPersonId"/>
                     </Principal>
                     <Dependent Role="ContactPerson">
-                        <PropertyRef Name="ContactPersonId"/>
+                        <PropertyRef Name="Id"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
@@ -139,6 +143,10 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="Contact Person"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToContactPerson/@Communication.Contact"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Country"/>
@@ -254,6 +262,35 @@
                 </Annotation>
             </Annotations>
 
+            <!-- Contact Person -->
+            <Annotations Target="FioriElement.ContactPerson"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Communication.Contact">
+                    <Record Type="Communication.ContactType">
+                        <PropertyValue Property="fn" Path="Name"/>
+                        <PropertyValue Property="role" Path="Title"/>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="Communication.EmailAddressType">
+                                    <PropertyValue Property="address" Path="Email"/>
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="Communication.PhoneNumberType">
+                                    <PropertyValue Property="uri" Path="Phone"/>
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/work"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+            </Annotations>
+
+            <!--Starting of Products-->
             <!-- Add label to product table -->
             <Annotations Target="FioriElement.Product/Name"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -349,6 +386,7 @@
                 <EntitySet EntityType="FioriElement.Order" Name="Orders"/>
                 <!-- Added VH_Countries Entity Set -->
                 <EntitySet EntityType="FioriElement.VH_Country" Name="VH_Countries"/>
+                <EntitySet EntityType="FioriElement.ContactPerson" Name="ContactPersons"/>
 
                 <AssociationSet Association="FioriElement.FK_Supplier_Products" Name="SupplierToProducts_AssocSet">
                     <End EntitySet="Suppliers" Role="Supplier"/>
