@@ -13,6 +13,10 @@
         xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
     </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
     <edmx:DataServices m:DataServiceVersion="2.0"
         xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
         <Schema Namespace="FioriElement"
@@ -265,7 +269,7 @@
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation String="Unit Price" Term="Common.Label"/>
                 <!-- Show Currency Key -->
-                <Annotation Term="Measures.Unit" Path="CurrencyKey"/>
+                <Annotation Term="Measures.Unit" Path="CurrencyKey" />
             </Annotations>
 
             <Annotations Target="FioriElement.Product/Discontinued"
