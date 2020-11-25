@@ -117,7 +117,17 @@
                             "fragmentName": "com.rizing.myfioriappproject.ext.fragment.ListReportResponsiveTableCells",
                             "type": "XML"
                         }
-                    }
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+						"AfterFacet|Suppliers|ProductList": {
+							"className": "sap.ui.core.mvc.View",
+							"viewName": "com.rizing.myfioriappproject.ext.view.DescriptionBreakout",
+							"type": "XML",
+							"sap.ui.generic.app": {
+								"title": "{{ProductDescription}}"
+							}
+						}
+					}
                 },
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {

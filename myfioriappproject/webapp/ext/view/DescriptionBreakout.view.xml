@@ -1,0 +1,8 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox>
+		<TextArea id="DescriptionTextArea" 
+				value="{to_ProductTextInOriginalLang/Description}"
+				width="30%" 
+				editable="true"/>
+	</VBox>
+</core:View>	
